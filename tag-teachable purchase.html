@@ -1,0 +1,35 @@
+<!-- Tag: UA-Purchase-Tag -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-76791658-1"></script>
+<script>
+dataLayer.push({ ecommerce: null });  // Clear the previous ecommerce object.
+dataLayer.push({
+  'ecommerce': {
+    'purchase': {
+      'actionField': {
+        'id': '{{url-ecom-sale_id}}',       // Transaction ID. Required for purchases and refunds.
+        'affiliation': 'school.theproductionacademy.com',
+        'revenue': {{url-ecom-final_price}},   // Total transaction value (incl. tax and shipping)
+        'tax': {{url-ecom-tax_charge}},
+        'shipping': 0,
+        'coupon': '{{url-ecom-coupon}}',
+        'discount': {{url-ecom-discount-CLEAN}},
+        'cstm_payment_method':'{{url-ecom-payment_method}}',
+        'cstm_is_recurring': '{{url-ecom-is_recurring}}',
+        'cstm_purchased_plan': '{{url-ecom-purchased}}',
+        'cstm_purchased_at': '{{url-ecom-purchased_at}}',
+        'cstm_user_id': '{{url-ecom-user_id}}'
+      },
+      'products': [{                            // List of productFieldObjects.
+        'id': '{{url-ecom-purchased_course_id}}',
+        'price': {{url-ecom-purchased_list_price-CLEAN}},
+        'brand': '',
+        'category': 'Course',
+        'variant': '',
+        'quantity': 1,
+        'coupon': ''                            // Optional fields may be omitted or set to empty string.
+       }]
+    }
+  }
+});
+</script>
